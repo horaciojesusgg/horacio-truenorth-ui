@@ -10,22 +10,5 @@ const  ChildRandomString = () => (
         </section>
     </div>
 );
-
-
-const Key: FC = () => {
-    return (
-      <button
-        className={classNames(
-          "bg-skin-key-muted text-skin-primary shadow-muted rounded-lg h-auto text-2xl hover:brightness-150 h-[15vh]",
-          "bg-skin-key-secondary text-skin-equal shadow-secondary",
-          "col-span-2"
-        )}
-      >
-        generate string
-      </button>
-    );
-  };
-
-
 const RandomString = WithAuthProtection(ChildRandomString)
 export { RandomString };

@@ -15,7 +15,6 @@ const ChildSquareRootCalculator = () => {
     setShowAlert(false);
   };
   const handleClick = async () => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvcmFjaW8xQHRlc3QuY29tIiwiaWQiOiJlMjc4MDZkNS1iN2I3LTRiNWYtOTVmYy0wZjAwZTQyODc3YTgiLCJpYXQiOjE2ODA3OTQwNDAsImV4cCI6MTY4MDg4MDQ0MH0.YPIGtwblV8aSbMJMx9hXJDgmJ4YQO69rQBriLolvkro'
 
     try {
       // Make an API call to the backend to calculate the square root of a number
