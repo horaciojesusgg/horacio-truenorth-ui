@@ -3,11 +3,12 @@ import axios from "axios";
 import Link from "next/link";
 import { setTokenCookie } from 'utils/cookies';
 import AxiosInstance from "context/AxiosInstance";
+import { useRouter } from "next/router";
 
 export const Login = (props: any) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-
+    const router = useRouter();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const response = await AxiosInstance.post('/user/login', {
@@ -16,6 +17,7 @@ export const Login = (props: any) => {
         });
 
         setTokenCookie(response.data.token)
+        router.push('/calculator')
     }
 
     return (
