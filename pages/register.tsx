@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AxiosInstance from "context/AxiosInstance";
 
 export const Register = (props: any) => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ export const Register = (props: any) => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:3000/user/register', {
+        const response = await AxiosInstance.post('/user/register', {
             name,
             email,
             password: pass
