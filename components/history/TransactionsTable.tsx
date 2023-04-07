@@ -22,8 +22,8 @@ const TransactionsTableChild = () => {
       };
 
       const deleteUser = useCallback(
-        (id: string) => () => {
-          setRecordId(id)
+        (id: any) => () => {
+          setRecordId(id.toString())
           setShowAlert(true)
 
         },
@@ -46,7 +46,8 @@ const TransactionsTableChild = () => {
             headerName: 'Actions',
             type: 'actions',
             getActions: (params: GridRowParams) => [
-              <GridActionsCellItem icon={<DeleteIcon />} onClick={deleteUser(params.id.toString())} label="Delete" />,
+              // eslint-disable-next-line
+              <GridActionsCellItem icon={<DeleteIcon />} onClick={deleteUser(params.id)} label="Delete" />,
             ]
           }
 
