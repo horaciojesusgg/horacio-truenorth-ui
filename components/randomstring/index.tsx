@@ -1,1 +1,1 @@
-export {RandomString} from './randomstring'
+export { RandomString } from './randomstring'

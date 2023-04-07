@@ -1,21 +1,21 @@
-import classNames from "classnames";
+import classNames from 'classnames'
 
-import { useThemeContext } from "theme";
+import { useThemeContext } from 'theme'
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useThemeContext();
+  const { theme, setTheme } = useThemeContext()
 
   const handleDefaultTheme = () => {
-    setTheme(undefined);
-  };
+    setTheme(undefined)
+  }
 
   const handleLightTheme = () => {
-    setTheme("light-theme");
-  };
+    setTheme('light-theme')
+  }
 
   const handleNeonTheme = () => {
-    setTheme("neon-theme");
-  };
+    setTheme('neon-theme')
+  }
 
   return (
     <div className="flex flex-col items-end">
@@ -46,18 +46,18 @@ const ThemeSwitcher = () => {
           />
           <span
             className={classNames(
-              "absolute w-4 h-4 bg-skin-key-secondary rounded-full top-1/2 -translate-y-1/2 transition-all duration-500",
+              'absolute w-4 h-4 bg-skin-key-secondary rounded-full top-1/2 -translate-y-1/2 transition-all duration-500',
               {
-                "left-1": !theme,
-                "left-1/2 -translate-x-1/2": theme === "light-theme",
-                "left-[94%] -translate-x-full": theme === "neon-theme",
+                'left-1': !theme,
+                'left-1/2 -translate-x-1/2': theme === 'light-theme',
+                'left-[94%] -translate-x-full': theme === 'neon-theme',
               }
             )}
           />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { ThemeSwitcher };
+export { ThemeSwitcher }

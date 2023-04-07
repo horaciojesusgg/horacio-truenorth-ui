@@ -1,28 +1,28 @@
-import { createContext, FC, ReactNode, useContext, useState } from "react";
+import { createContext, FC, ReactNode, useContext, useState } from 'react'
 
 interface ITheme {
-  theme?: ThemeType;
-  setTheme: (_theme: ThemeType) => void;
+  theme?: ThemeType
+  setTheme: (_theme: ThemeType) => void
 }
 
-type ThemeType = "light-theme" | "neon-theme";
+type ThemeType = 'light-theme' | 'neon-theme'
 
-const ThemeContext = createContext<ITheme | undefined>(undefined);
+const ThemeContext = createContext<ITheme | undefined>(undefined)
 
 interface IThemeProvider {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeType | undefined>(undefined);
+  const [theme, setTheme] = useState<ThemeType | undefined>(undefined)
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
-const useThemeContext = () => useContext(ThemeContext);
+const useThemeContext = () => useContext(ThemeContext)
 
-export { ThemeProvider, useThemeContext };
+export { ThemeProvider, useThemeContext }

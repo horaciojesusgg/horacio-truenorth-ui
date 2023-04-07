@@ -1,1 +1,1 @@
-export { useWindowHeight } from "./useWindowHeight";
+export { useWindowHeight } from './useWindowHeight'

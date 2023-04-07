@@ -1,8 +1,8 @@
-import { CalculatorProvider } from "context";
-import { Layout } from "layout";
-import { ThemeProvider } from "theme";
+import { CalculatorProvider } from 'context'
+import { Layout } from 'layout'
+import { ThemeProvider } from 'theme'
 
-import "../styles/globals.scss";
+import '../styles/globals.scss'
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,5 +13,5 @@ export default function App({ Component, pageProps }) {
         </Layout>
       </CalculatorProvider>
     </ThemeProvider>
-  );
+  )
 }

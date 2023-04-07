@@ -1,1 +1,1 @@
-export { CalculatorProvider, useCalculatorContext } from "./CalculatorProvider";
+export { CalculatorProvider, useCalculatorContext } from './CalculatorProvider'

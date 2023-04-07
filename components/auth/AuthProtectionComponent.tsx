@@ -1,22 +1,23 @@
-import Link from 'next/link';
-import React from 'react';
-import { getTokenCookie } from '../../utils/cookies';
+import Link from 'next/link'
+import React from 'react'
+import { getTokenCookie } from '../../utils/cookies'
 
 const WithAuthProtection = (ProtectedComponent) => {
   const AuthProtection = (props) => {
-    const token = getTokenCookie();
+    const token = getTokenCookie()
 
     if (!token) {
-      
-      return (<>
-         <Link href="/">Please log in! (click here)</Link>
-      </>);
+      return (
+        <>
+          <Link href="/">Please log in! (click here)</Link>
+        </>
+      )
     }
 
-    return <ProtectedComponent {...props} />;
-  };
+    return <ProtectedComponent {...props} />
+  }
 
-  return AuthProtection;
-};
+  return AuthProtection
+}
 
-export default WithAuthProtection;
+export default WithAuthProtection

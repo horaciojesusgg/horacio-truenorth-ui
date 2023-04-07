@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import { FC } from "react";
+import classNames from 'classnames'
+import { FC } from 'react'
 
-import { KEY_VALUES } from "constant";
-import { useCalculatorContext } from "context";
-import { KeyType } from "types";
+import { KEY_VALUES } from 'constant'
+import { useCalculatorContext } from 'context'
+import { KeyType } from 'types'
 
 const Keyboard = () => {
   return (
@@ -12,28 +12,28 @@ const Keyboard = () => {
         <Key key={index} value={value} />
       ))}
     </section>
-  );
-};
+  )
+}
 
 interface IKeyProps {
-  value: KeyType;
+  value: KeyType
 }
 
 const Key: FC<IKeyProps> = ({ value }) => {
-  const { handleKeyPress } = useCalculatorContext();
+  const { handleKeyPress } = useCalculatorContext()
 
-  const isEqualKey = value === "=";
-  const isResetOrEqualKey = ["=", "reset"].includes(value);
-  const isResetOrDelKey = ["del", "reset"].includes(value);
+  const isEqualKey = value === '='
+  const isResetOrEqualKey = ['=', 'reset'].includes(value)
+  const isResetOrDelKey = ['del', 'reset'].includes(value)
 
   return (
     <button
       className={classNames(
-        "bg-skin-key-muted text-skin-primary shadow-muted rounded-lg h-auto text-4xl hover:brightness-150",
+        'bg-skin-key-muted text-skin-primary shadow-muted rounded-lg h-auto text-4xl hover:brightness-150',
         {
-          "bg-skin-key-secondary text-skin-equal shadow-secondary": isEqualKey,
-          "col-span-2": isResetOrEqualKey,
-          "uppercase bg-skin-key-primary text-skin-secondary shadow-primary text-xl":
+          'bg-skin-key-secondary text-skin-equal shadow-secondary': isEqualKey,
+          'col-span-2': isResetOrEqualKey,
+          'uppercase bg-skin-key-primary text-skin-secondary shadow-primary text-xl':
             isResetOrDelKey,
         }
       )}
@@ -41,7 +41,7 @@ const Key: FC<IKeyProps> = ({ value }) => {
     >
       {value}
     </button>
-  );
-};
+  )
+}
 
-export { Keyboard};
+export { Keyboard }

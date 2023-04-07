@@ -1,9 +1,9 @@
-import { Textfit } from "react-textfit";
+import { Textfit } from 'react-textfit'
 
-import { useCalculatorContext } from "context";
+import { useCalculatorContext } from 'context'
 
 const Screen = () => {
-  const { value, expression } = useCalculatorContext();
+  const { value, expression } = useCalculatorContext()
 
   return (
     <div className="relative flex items-center justify-end bg-skin-screen w-full h-26 sm:h-[16vh] sm:min-h-[90px] sm:max-h-[128px] rounded-xl mb-6 p-4 sm:p-6">
@@ -20,7 +20,7 @@ const Screen = () => {
         {value}
       </Textfit>
     </div>
-  );
-};
+  )
+}
 
-export { Screen };
+export { Screen }
