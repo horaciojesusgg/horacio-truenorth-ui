@@ -216,6 +216,30 @@ input[type=file]::file-selector-button:hover {
   cursor: pointer;
 }
 
+.alert-primary-button {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ff73;
+  color: white;
+  cursor: pointer;
+}
+
+
 .alert-close-button:hover {
   background-color: #0062cc;
+}
+
+///////
+.sign-out-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sign-out {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
 }

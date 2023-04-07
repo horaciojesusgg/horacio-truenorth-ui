@@ -1,16 +1,34 @@
 import Head from "next/head";
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import { ThemeSwitcher } from "components";
 import { Calculator } from "components/calculator";
 import SideMenu from "components/menu/menu";
-import { DataGrid } from "@mui/x-data-grid";
-import { useState, useEffect } from "react";
+import { DataGrid, GridActionsCellItem, GridRowId, GridRowParams } from "@mui/x-data-grid";
+import { useState, useEffect, useCallback } from "react";
 import AxiosInstance from "context/AxiosInstance";
 import WithAuthProtection from "components/auth/AuthProtectionComponent";
+import DeleteRecordModal from "components/record/DeleteModal";
 
 const TransactionsTableChild = () => {
+    const [showAlert, setShowAlert] = useState(false);
+    const [recordId, setRecordId] = useState("");
 
     const [rows, setRows] = useState([])
+    const handleAlertClose = () => {
+        setShowAlert(false);
+        setTimeout(() => {
+            setRows((prevRows) => prevRows.filter((row) => row.id !== recordId));
+          });
+      };
+
+      const deleteUser = useCallback(
+        (id: string) => () => {
+          setRecordId(id)
+          setShowAlert(true)
+
+        },
+        [],
+      );
 
     useEffect(() => {
         AxiosInstance.get('/record/list').then((res) => {
@@ -19,10 +37,19 @@ const TransactionsTableChild = () => {
       }, []);
 
     const columns = [
-        { field: 'id', headerName: 'Id', width: 300 },
-        { field: 'amount', headerName: 'Amount', width: 300 },
-        { field: 'user_balance', headerName: 'Balance', width: 150 },
-        { field: 'operation_response', headerName: 'Operation Result', width: 300 },
+        { field: 'id', headerName: 'Id', width: 100 },
+        { field: 'amount', headerName: 'Amount', width: 150 },
+        { field: 'user_balance', headerName: 'Balance', width: 100 },
+        { field: 'operation_response', headerName: 'Operation Result', width: 150 },
+        {
+            field: 'actions',
+            headerName: 'Actions',
+            type: 'actions',
+            getActions: (params: GridRowParams) => [
+              <GridActionsCellItem icon={<DeleteIcon />} onClick={deleteUser(params.id.toString())} label="Delete" />,
+            ]
+          }
+
       ];
   return (
     <>
@@ -32,6 +59,8 @@ const TransactionsTableChild = () => {
   columns={columns}
   checkboxSelection
 />
+    <DeleteRecordModal recordId={recordId} onClose={handleAlertClose} isOpen={showAlert} />
+
     </>
   );
 }
